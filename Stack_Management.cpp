@@ -1,22 +1,21 @@
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-// Структура Stack представляет собой элемент стека, содержащий информацию (info) и указатель на следующий элемент (next).
+// Структура Stack представляет элемент стека, содержащий информацию (info) и указатель на следующий элемент (next).
 struct Stack {
     int info;
     Stack* next;
 };
 
-// Функция InStack создает новый элемент стека и помещает его на вершину стека.
+// Функция InStack добавляет новый элемент в стек и возвращает указатель на его вершину.
 Stack* InStack(Stack* p, int in) {
     return new Stack {in, p};
 }
 
-// Функция View осуществляет вывод содержимого стека на экран.
+// Функция View выводит на экран содержимое стека.
 void View(Stack* p) {
     Stack* t = p;
     while (t != nullptr) {
@@ -25,7 +24,7 @@ void View(Stack* p) {
     }
 }
 
-// Функция Del_All осуществляет удаление всех элементов стека, начиная с его вершины.
+// Функция Del_All удаляет все элементы стека, начиная с его вершины.
 void Del_All(Stack** p) {
     while (*p != nullptr) {
         Stack* t = *p;
@@ -68,33 +67,33 @@ double Average(Stack* p) {
         count++;
         t = t->next;
     }
-    return (count == 0) ? 0 :
-    sum / count;
+    return (count == 0) ? 0 : sum / count;
 }
 
 // Функция clearOut удаляет все элементы стека, кроме его вершины.
 void clearOut(Stack*& stk) {
-for (Stack* t = stk->next; stk->next != nullptr; t = stk->next) {
-delete stk;
-stk = t;
-}
+    for (Stack* t = stk->next; stk->next != nullptr; t = stk->next) {
+        delete stk;
+        stk = t;
+    }
 }
 
 // Функция main предоставляет пользователю возможность выбора режима работы программы.
 int main() {
-int i, in, n, kod;
-Stack* begin = nullptr;
-while (true) {
-cout << "\n\tCreate - 1.\n\tAdd - 2.\n\tView - 3.\n\tDel - 4.\n\tDelMinEl - 5.\n\tEXIT - 0. : ";
-cin >> kod;
-switch (kod) {
-case 1:
-case 2:
-if (kod == 1 && begin != nullptr) {
-cout << "Clear Memory!" << endl;
-break;
-}
-cout << "Input kol = ";
+    int i, in, n, kod;
+    Stack* begin = nullptr;
+    srand(time(nullptr));
+    while (true) {
+        cout << "\n\tCreate - 1.\n\tAdd    - 2.\n\tView   - 3.\n\tDel    - 4.\n\tDelMinEl - 5.\n\tEXIT   - 0. : ";
+        cin >> kod;
+        switch (kod) {
+            case 1:
+            case 2:
+                if (kod == 1 && begin != nullptr) {
+                    cout << "Clear Memory!" << endl;
+                    break;
+                }
+                cout <<"Input kol = ";
 cin >> n;
 for (i = 1; i <= n; i++) {
 in = rand() % 20;
