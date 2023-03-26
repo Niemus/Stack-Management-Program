@@ -96,19 +96,19 @@ int main() {
                 cout <<"Input kol = ";
 cin >> n;
 for (i = 1; i <= n; i++) {
-in = rand() % 20;
-begin = InStack(begin, in);
+    in = rand() % 20;
+    begin = InStack(begin, in);
 }
 if (kod == 1) {
-cout << "Create " << n << endl;
+    cout << "Create " << n << endl;
 } else {
-cout << "Add " << n << endl;
+    cout << "Add " << n << endl;
 }
 break;
 case 3:
 if (begin == nullptr) {
-cout << "Stack is Empty!" << endl;
-break;
+    cout << "Stack is Empty!" << endl;
+    break;
 }
 cout << "--- Stack ---" << endl;
 View(begin);
@@ -120,23 +120,23 @@ View(begin);
 break;
 case 4:
 if (begin == nullptr) {
-cout << "Stack is Empty!" << endl;
-break;
+    cout << "Stack is Empty!" << endl;
+    break;
 }
 Del_All(&begin);
 cout << "Memory Freed!" << endl;
 break;
 case 5:
 if (begin == nullptr) {
-cout << "Stack is Empty!" << endl;
-break;
+    cout << "Stack is Empty!" << endl;
+    break;
 }
 begin = DeleteMinEl(begin);
 cout << "Negative Items Removed!" << endl;
 break;
 case 0:
 if (begin != nullptr) {
-Del_All(&begin);
+    Del_All(&begin);
 }
 return 0;
 default:
@@ -145,3 +145,4 @@ break;
 }
 }
 }
+
